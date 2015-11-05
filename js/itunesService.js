@@ -14,10 +14,26 @@
 		    //Code here
 
 		    this.getSongData = function(artist) {
-		    	return $http ({
+		    	var deferred = $q.defer();
+		    	$http ({
 		    		method: 'JSONP',
 		    		url: 'https://itunes.apple.com/search?term=' + artist + '&callback=JSON_CALLBACK'
+		    	}).then(function(res) {
+		    		var parsedData = res.data.results;
+		    		var artists = [];
+		    		for (var i = 0; i < parsedData.length; i++) {
+		    			var artistData = {};
+		    			artistData.play = parsedData[i].previewUrl;
+		    			artistData.artist = parsedData[i].artistName;
+		    			artistData.collection = parsedData[i].collectionName;
+		    			artistData.albumArt = parsedData[i].trackViewUrl;
+		    			artistData.type = parsedData[i].kind;
+		    			artistData.collectionPrice = parsedData[i].collectionPrice;
+		    			artists.push(artistData);
+		    		}	    	
+		    		deferred.resolve(artists);
 		    	})
+		    	return deferred.promise;
 		    }
 		    
 		});
