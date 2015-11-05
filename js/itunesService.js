@@ -12,6 +12,13 @@
 		  //You can return the http request or you can make your own promise in order to manipulate the data before you resolve it.
 
 		    //Code here
+
+		    this.getSongData = function(artist) {
+		    	return $http ({
+		    		method: 'JSONP',
+		    		url: 'https://itunes.apple.com/search?term=' + artist + '&callback=JSON_CALLBACK'
+		    	})
+		    }
 		    
 		});
 })();
