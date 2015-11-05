@@ -1,1 +1,5 @@
-var app = angular.module('itunes', ['ngGrid'])
+(function() {
+
+angular.module('itunes', ['ngGrid'])
+
+})();
