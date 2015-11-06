@@ -12,7 +12,6 @@ html, body {
 
 .ngTopPanel {
   line-height: 25px;
-  position: fixed;
 }
 
 .ngCell  {

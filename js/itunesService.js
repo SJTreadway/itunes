@@ -22,13 +22,22 @@
 		    		var parsedData = res.data.results;
 		    		var artists = [];
 		    		for (var i = 0; i < parsedData.length; i++) {
+		    			console.log(parsedData[i])
 		    			var artistData = {};
-		    			artistData.play = parsedData[i].previewUrl;
-		    			artistData.artist = parsedData[i].artistName;
-		    			artistData.collection = parsedData[i].collectionName;
-		    			artistData.albumArt = parsedData[i].trackViewUrl;
-		    			artistData.type = parsedData[i].kind;
-		    			artistData.collectionPrice = parsedData[i].collectionPrice;
+		    			artistData.Play = parsedData[i].previewUrl;
+		    			artistData.Artist = parsedData[i].artistName;
+		    			artistData.TrackName = parsedData[i].trackName;
+		    			artistData.Collection = parsedData[i].collectionName;
+		    			artistData.AlbumArt = parsedData[i].artworkUrl60;
+		    			artistData.Type = parsedData[i].kind;
+		    			artistData.TrackPrice = parsedData[i].trackPrice;
+		    			artistData.CollectionPrice = parsedData[i].collectionPrice;
+		    			if (artistData.TrackPrice === -1) {
+		    				artistData.TrackPrice = 'n/a';
+		    			}
+		    			if (artistData.CollectionPrice === -1) {
+		    				artistData.CollectionPrice = 'n/a';
+		    			}
 		    			artists.push(artistData);
 		    		}	    	
 		    		deferred.resolve(artists);
