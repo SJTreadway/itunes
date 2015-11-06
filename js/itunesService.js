@@ -8,7 +8,7 @@
 
 		  //Write a method that accepts an artist's name as the parameter, then makes a 'JSONP' http request to a url that looks like this
 		  //https://itunes.apple.com/search?term=' + artist + '&callback=JSON_CALLBACK'
-		  //Note that in the above line, artist is the parameter being passed in. 
+		  //Note that in the above line, artist is the parameter being passed in.
 		  //You can return the http request or you can make your own promise in order to manipulate the data before you resolve it.
 
 		    //Code here
@@ -22,7 +22,6 @@
 		    		var parsedData = res.data.results;
 		    		var artists = [];
 		    		for (var i = 0; i < parsedData.length; i++) {
-		    			console.log(parsedData[i])
 		    			var artistData = {};
 		    			artistData.Play = parsedData[i].previewUrl;
 		    			artistData.Artist = parsedData[i].artistName;
@@ -39,11 +38,11 @@
 		    				artistData.CollectionPrice = 'n/a';
 		    			}
 		    			artists.push(artistData);
-		    		}	    	
+		    		}
 		    		deferred.resolve(artists);
 		    	})
 		    	return deferred.promise;
 		    }
-		    
+
 		});
 })();
