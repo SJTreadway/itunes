@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
 
   <body ng-controller="mainCtrl">
@@ -17,11 +17,11 @@
             <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-music"></span> DevTunes</a>
           </div>
 
-          <form class="navbar-form navbar-left" role="search">
+          <form ng-submit="getSongData(artist)"class="navbar-form navbar-left" role="search">
 
             <div class="form-group">
-              <input type="text" class="form-control" ng-model="artist" ng-change="getSongData(artist)" placeholder="Artist Name" >
-              <!-- <button class="btn btn-primary" > Submit </button> -->
+              <input type="text" class="form-control" ng-model="artist" placeholder="Artist Name" >
+              <button type="submit" class="btn btn-primary"> Submit </button>
             </div>
           </form>
         </div>
